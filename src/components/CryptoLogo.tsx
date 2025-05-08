@@ -26,7 +26,7 @@ const CryptoLogo = ({ name, symbol, logo, className }: CryptoLogoProps) => {
           )}
         >
           <img 
-            src={`/lovable-uploads/${logo}`}
+            src={`/uploads/${logo}`}
             alt={`${name} logo`}
             className="w-5 h-5 object-contain"
             onError={(e) => {
