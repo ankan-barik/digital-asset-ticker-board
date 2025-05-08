@@ -1,73 +1,118 @@
-# Welcome to your Lovable project
 
-## Project info
+# Crypto Price Tracker
 
-**URL**: https://lovable.dev/projects/6b1cba3f-a8f0-4b6e-8f48-ae4994004dad
+A real-time cryptocurrency price tracking application that simulates WebSocket updates and manages state via Redux Toolkit.
 
-## How can I edit this code?
+![Demo GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDk4ZjRhOWQ5N2VkMTRkOWMzNjViY2I5NGIwMzQ1MmVjNjJhZGYwNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/l3q2Ckc68w53RTrl4f/giphy.gif)
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- 📊 Real-time cryptocurrency price updates (simulated WebSocket)
+- 📈 Responsive data table with sorting functionality
+- 🎨 Visual indicators for price changes (green for positive, red for negative)
+- 📉 7-day mini charts for each cryptocurrency
+- 💹 Price, percentage change, and volume updates every 1.5 seconds
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6b1cba3f-a8f0-4b6e-8f48-ae4994004dad) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React**: UI library for building the interface
+- **TypeScript**: For static typing and improved developer experience
+- **Redux Toolkit**: State management library for managing application state
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **shadcn/ui**: Component library built on top of Tailwind CSS
+- **Vite**: Development and build tool
 
-**Use your preferred IDE**
+## Architecture
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Core Components
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Redux Store**: Central state management with slices for cryptocurrency data
+- **WebSocket Service**: Simulated WebSocket service that updates crypto prices
+- **CryptoTable**: Main UI component displaying cryptocurrency data
+- **Supporting Components**:
+  - PercentageChange: Displays price changes with appropriate coloring
+  - PriceChange: Shows price with animation on updates
+  - MiniChart: Displays 7-day price chart
+  - CryptoLogo: Shows cryptocurrency logos with appropriate styling
 
-Follow these steps:
+### Data Flow
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. The WebSocket service dispatches Redux actions to update cryptocurrency data
+2. Redux store processes the actions and updates the application state
+3. React components subscribe to the state and re-render when data changes
+4. Visual indicators show price movements and updates
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Setup Instructions
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- Node.js (v14+)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to the project directory
+cd crypto-price-tracker
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
 npm run dev
+# or
+yarn dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Demo Walkthrough
 
-**Use GitHub Codespaces**
+### UI Layout
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The application displays a responsive table of cryptocurrency data, including:
 
-## What technologies are used for this project?
+- Cryptocurrency name and symbol with logo
+- Current price with real-time updates
+- Percentage changes (1h, 24h, 7d)
+- Market capitalization
+- 24-hour trading volume
+- Circulating supply information
+- 7-day price chart
 
-This project is built with:
+### Live Updates
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Prices update every 1.5 seconds with visual indicators
+- Green highlighting for price increases
+- Red highlighting for price decreases
+- Auto-sorting maintains correct order during updates
 
-## How can I deploy this project?
+### State Flow
 
-Simply open [Lovable](https://lovable.dev/projects/6b1cba3f-a8f0-4b6e-8f48-ae4994004dad) and click on Share -> Publish.
+1. The simulated WebSocket service dispatches actions to update crypto data
+2. Redux processes these actions to update the application state
+3. Components re-render with new data when state changes
+4. UI elements animate to show data updates
 
-## Can I connect a custom domain to my Lovable project?
+### Development Process
 
-Yes, you can!
+This project was built with a focus on:
+- Clean component architecture
+- Efficient state management
+- Responsive design
+- Visual feedback for data changes
+- Performance optimization for smooth updates
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Future Enhancements
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Real WebSocket integration with actual market data
+- Advanced filtering options
+- Detailed view for individual cryptocurrencies
+- Dark/light theme switching
+- User preferences saved in localStorage
+- Unit testing for reducers and components
